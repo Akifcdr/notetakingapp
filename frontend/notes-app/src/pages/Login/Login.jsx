@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import { Link } from 'react-router-dom'
 import PasswordInput from '../../components/input/passwordinput'
@@ -16,6 +16,11 @@ const Login = () => {
       setError("Please enter a valid email address");
       return;
     }
+    if(!password){
+      setError("Please enter password");
+      return;
+    }
+    setError("");
   };
 
   return(
