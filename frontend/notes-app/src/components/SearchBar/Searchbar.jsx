@@ -1,4 +1,6 @@
 import React from 'react'
+import FaMagnifyingGlass from 'react-icons/fa6'
+import {IoMdClose} from 'react-icons/io'
 
 const Searchbar = ({value,onChange,handleSearch,onClearSearch}) => {
   return (
@@ -7,10 +9,10 @@ const Searchbar = ({value,onChange,handleSearch,onClearSearch}) => {
       type="text"
       placeholder='Search Notes'
       className='w-full text-xs bg-transparent py-[11px] outline-none'
-      value='value'
+      value={value}
       onChange={onChange}
       />
-      
+      <FaMagnifyingGlass className='text-slate-400 cursor-pointer hover:text-black'/>
     </div>
   )
 }
