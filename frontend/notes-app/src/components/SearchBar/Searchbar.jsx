@@ -1,5 +1,5 @@
 import React from 'react'
-import FaMagnifyingGlass from 'react-icons/fa6'
+import {FaMagnifyingGlass} from 'react-icons/fa6'
 import {IoMdClose} from 'react-icons/io'
 
 const Searchbar = ({value,onChange,handleSearch,onClearSearch}) => {
@@ -12,7 +12,16 @@ const Searchbar = ({value,onChange,handleSearch,onClearSearch}) => {
       value={value}
       onChange={onChange}
       />
-      <FaMagnifyingGlass className='text-slate-400 cursor-pointer hover:text-black'/>
+      {value &&(
+        <IoMdClose 
+        className="text-xl text-slate-500 cursor-pointer hover:text-black mr-3" 
+        onClick={onClearSearch}
+        />
+      )}
+      <FaMagnifyingGlass
+        className='text-slate-400 cursor-pointer hover:text-black'
+        onClick={handleSearch}
+      />
     </div>
   )
 }
