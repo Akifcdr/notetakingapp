@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../components/cards/NoteCard'
 import { MdAdd } from 'react-icons/md'
+import AddEditNotes from './AddEditNotes'
 const Home = () => {
   return (
     <>
@@ -20,9 +21,11 @@ const Home = () => {
             />
         </div>
       </div>
-      <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10 bottom-10" onClick={()=>{}}>
+      <button className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 absolute right-10" onClick={()=>{}}>
         <MdAdd className='text-[32px] text-white'/>
       </button>
+
+      <AddEditNotes/>
     </>
   )
 }
