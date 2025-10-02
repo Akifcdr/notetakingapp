@@ -1,1 +1,3 @@
-"connectionString":
+{
+    "connectionString":"mongodb+srv://akifabdullah199_db_user:ELCdJYk6J8qRBzK9@notesapp.2q6hngg.mongodb.net/?retryWrites=true&w=majority&appName=notesapp"
+}
