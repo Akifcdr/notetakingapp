@@ -97,7 +97,9 @@ app.post("/login",async(req,res)=>{
         .json({error:true,message:"Invalid credentials"});
     }
 });
-    
+
+app.post("/addNote",authenticateToken,(req,res)=>{
+});
 app.listen(8000);
 
 module.exports=app;
