@@ -9,3 +9,5 @@ const noteSchema=new Schema({
     userId:{type:String,required:true},
     createdOn:{type:Date,default:new Date().getTime()},
 });
+
+module.exports=mongoose.model("Note",noteSchema);
