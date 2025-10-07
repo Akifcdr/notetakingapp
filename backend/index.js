@@ -6,6 +6,7 @@ const mongoose=require("mongoose");
 mongoose.connect(config.connectionString);
 
 const User=require("./models/user.model");
+const Note=require("./models/note.model");
 
 const express=require('express');
 const cors=require("cors");
@@ -99,6 +100,18 @@ app.post("/login",async(req,res)=>{
 });
 
 app.post("/addNote",authenticateToken,(req,res)=>{
+    const {title,content,tags}=req.body;
+    const {user}=req.user;
+    if(!title){
+        return res
+        .status(400)
+        .json({error:true,message:"Title is required"});
+    }
+    if(!content){
+        return res
+        .status(400)
+        .json({error:true,message:"Content is required"});
+    }
 });
 app.listen(8000);
 
