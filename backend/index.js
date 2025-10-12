@@ -66,7 +66,7 @@ app.post("/create-account",async(req,res)=>{
         message:"Account created successfully",
     });
 }); 
-
+//Login
 app.post("/login",async(req,res)=>{
     const {email,password}=req.body;
     if(!email){
@@ -98,8 +98,8 @@ app.post("/login",async(req,res)=>{
         .json({error:true,message:"Invalid credentials"});
     }
 });
-
-app.post("/addNote",authenticateToken,async(req,res)=>{
+//Add Note
+app.post("/add-note",authenticateToken,async(req,res)=>{
     const {title,content,tags}=req.body;
     const {user}=req.user;
     if(!title){
@@ -131,8 +131,9 @@ app.post("/addNote",authenticateToken,async(req,res)=>{
         .json({error:true,message:"Internal server error"});
     }
 });
-app.put("/editNote/:noteId",authenticateToken,async(req,res)=>{
-    const noteId=req.params;
+//Edit Note
+app.put("/edit-note/:noteId",authenticateToken,async(req,res)=>{
+    const noteId=req.params.noteId;
     const {title,content,tags,isPinned}=req.body;
     const {user}=req.user;
     if(!title&&!content&&!tags){
@@ -164,6 +165,7 @@ app.put("/editNote/:noteId",authenticateToken,async(req,res)=>{
         .json({error:true,message:"Internal server error"});
     }
 });
+//Get All Notes
 app.get("/get-all-notes/",authenticateToken,async(req,res)=>{
     const {user}=req.user;
     try{
@@ -175,7 +177,8 @@ app.get("/get-all-notes/",authenticateToken,async(req,res)=>{
         .json({error:true,message:"Internal server error"});
     }
 });
-app.delete("/deleteNote/:noteId",authenticateToken,async(req,res)=>{
+//Delete Note
+app.delete("/delete-note/:noteId",authenticateToken,async(req,res)=>{
     const noteId=req.params.noteId;
     const {user}=req.user;
     try{
