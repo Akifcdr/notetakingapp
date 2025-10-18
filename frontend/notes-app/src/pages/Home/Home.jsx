@@ -11,6 +11,7 @@ const Home = () => {
     type:"add",
     data:null
   })
+  const[userInfo,setUserInfo]=useState(null);
   return (
     <>
       <Navbar/>
