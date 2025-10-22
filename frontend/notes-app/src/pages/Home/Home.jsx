@@ -30,6 +30,17 @@ const Home = () => {
       }
     }
   };
+  //Get All notes
+  const getAllNotes=async()=>{
+    try{
+      const response=await axiosInstance.get("/get-all-notes");
+      if(response.data&&response.data.notes){
+        setAllNotes(response.data.notes);
+      }
+    }catch(error){
+      console.log("An unexpected error occurred,Please try again");
+    }
+  };
   useEffect(() => {
     getUserInfo();
     return () => {
