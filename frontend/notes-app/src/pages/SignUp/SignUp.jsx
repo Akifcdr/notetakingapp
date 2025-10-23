@@ -2,6 +2,8 @@ import React,{ useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import { Link,useNavigate } from 'react-router-dom'
 import PasswordInput from '../../components/input/passwordinput'
+import axiosInstance from '../../utils/axiosinstance'
+import { validateEmail } from '../../utils/helper'
 const SignUp = () => {
 
   const [name,setName] = useState("");
@@ -9,7 +11,7 @@ const SignUp = () => {
   const [password,setPassword] = useState("");
   const [error,setError] = useState(null);
 
-  const Navigate=useNavigate();
+  const navigate=useNavigate();
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -40,7 +42,7 @@ const SignUp = () => {
       }
       if(response.data&&response.data.accessToken){
         localStorage.setItem("Token",response.data.accessToken);
-        Navigate('/dashboard');
+        navigate('/dashboard');
       }
     }catch(error){
       if(error.response&&error.response.data&&error.response.data.message){
