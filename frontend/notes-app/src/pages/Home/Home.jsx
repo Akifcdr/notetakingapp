@@ -12,7 +12,9 @@ const Home = () => {
     isShown:false,
     type:"add",
     data:null
-  })
+  });
+
+  const[allNotes,setAllNotes]=useState([]);
   const[userInfo,setUserInfo]=useState(null);
   const navigate=useNavigate();
   //Get User Info
@@ -42,6 +44,7 @@ const Home = () => {
     }
   };
   useEffect(() => {
+    getAllNotes();
     getUserInfo();
     return () => {
     }
