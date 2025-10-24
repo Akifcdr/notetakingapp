@@ -55,16 +55,19 @@ const Home = () => {
       <Navbar userInfo={userInfo}/>
       <div className="container-mx-auto">
         <div className='grid grid-cols-3 gap-4 mt-8'>
-          <NoteCard
-            title="Meeting on 27th Jan"
-            date="27th Jan, 2024"
-            content="Meeting on 27th Jan Meeting on 27th Jan"
-            tags="#Meeting"
-            isPinned={true}
-            onEdit={() => {}}
-            onDelete={() => {}}
-            onPinNote={() => {}}
-            />
+          {allNotes.map((item,index)=>(
+            <NoteCard
+            key={note._id}
+              title="Meeting on 27th Jan"
+              date="27th Jan, 2024"
+              content="Meeting on 27th Jan Meeting on 27th Jan"
+              tags="#Meeting"
+              isPinned={true}
+              onEdit={() => {}}
+              onDelete={() => {}}
+              onPinNote={() => {}}
+            /> 
+          ))}
         </div>
       </div>
       <button 
