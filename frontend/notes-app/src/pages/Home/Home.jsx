@@ -58,11 +58,11 @@ const Home = () => {
           {allNotes.map((item,index)=>(
             <NoteCard
             key={note._id}
-              title="Meeting on 27th Jan"
+              title={item.title}
               date="27th Jan, 2024"
-              content="Meeting on 27th Jan Meeting on 27th Jan"
-              tags="#Meeting"
-              isPinned={true}
+              content={item.content}
+              tags={item.tags}
+              isPinned={item.isPinned}
               onEdit={() => {}}
               onDelete={() => {}}
               onPinNote={() => {}}
