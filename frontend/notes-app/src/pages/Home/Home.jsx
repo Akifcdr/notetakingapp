@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../components/cards/NoteCard'
+import moment from 'moment'
 import { MdAdd } from 'react-icons/md'
 import AddEditNotes from './AddEditNotes'
 import { useNavigate } from 'react-router-dom'
@@ -57,9 +58,9 @@ const Home = () => {
         <div className='grid grid-cols-3 gap-4 mt-8'>
           {allNotes.map((item,index)=>(
             <NoteCard
-            key={note._id}
+            key={item._id}
               title={item.title}
-              date="27th Jan, 2024"
+              date={moment(item.createdOn).format("DD MMM YYYY")}
               content={item.content}
               tags={item.tags}
               isPinned={item.isPinned}
