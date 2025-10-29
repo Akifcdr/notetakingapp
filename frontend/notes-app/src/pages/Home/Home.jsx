@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../components/cards/NoteCard'
-import moment from 'moment'
 import { MdAdd } from 'react-icons/md'
 import AddEditNotes from './AddEditNotes'
 import { useNavigate } from 'react-router-dom'
@@ -60,7 +59,7 @@ const Home = () => {
             <NoteCard
             key={item._id}
               title={item.title}
-              date={moment(item.createdOn).format("DD MMM YYYY")}
+              date={item.createdOn}
               content={item.content}
               tags={item.tags}
               isPinned={item.isPinned}
